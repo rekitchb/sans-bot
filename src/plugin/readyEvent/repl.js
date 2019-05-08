@@ -10,4 +10,5 @@ module.exports = (client) => {
   });
 
   myRepl.context.client = client;
+  myRepl.context.exit = process.exit(0);
 }

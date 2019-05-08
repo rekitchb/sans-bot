@@ -8,6 +8,9 @@ class Timer {
       clearInterval(this.start);
       this.count /= 1000;
     };
+    this.reset = () => {
+      this.count = 0;
+    }
   }
 }
 

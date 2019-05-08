@@ -23,7 +23,7 @@ const _log = {
       finVal += value;
     }
 
-    console.log(`${_log.getTime()} ${name}/${_log.pid} ${level}: ${chalk.default.cyan(finVal)}`)
+    console.log(`${chalk.default.red(_log.getTime())} ${name}/${_log.pid} ${level}: ${chalk.default.cyan(finVal)}`)
   }
 }
 
@@ -32,14 +32,14 @@ const log = {
   /**
    * @param {string} value
    */
-  info: (value) => _log.executor(chalk.default.red(value), log.name, chalk.default.blue(' INFO')),
+  info: (value) => _log.executor(value, log.name, chalk.default.blue(' INFO')),
   /**
    * @param {string} value
    */
-  error: (value) => _log.executor(chalk.default.red(value), log.name, chalk.default.redBright('ERROR')),
+  error: (value) => _log.executor(value, log.name, chalk.default.redBright('ERROR')),
   /**
    * @param {string} value
    */
-  fatal: (value) => _log.executor(chalk.default.red(value), log.name, chalk.default.bgRedBright('FATAL'))
+  fatal: (value) => _log.executor(value, log.name, chalk.default.bgRedBright('FATAL'))
 }
 module.exports = log;

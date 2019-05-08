@@ -1,6 +1,7 @@
 const { Client, Collection, Message } = require('discord.js');
 const Timer = require('./plugin/timer');
 const { embed_color } = require('./config.json');
+const log = require('./console');
 
 /**
  * Extender Client for Tempeh.
@@ -17,6 +18,7 @@ class DiscordClient extends Client {
 
     this.timer = new Timer();
     this.color = embed_color;
+    this.log = log;
   }
 }
 
