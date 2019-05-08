@@ -44,10 +44,10 @@ module.exports = (client, member) => {
               listRole.forEach(role => {
                 member.addRole(role);
               })
-              log.info(`EVADING: [${member.user.username}] Successfully Arrested!`);
+              log.info(`EVADING: [${member.user.username}#${member.user.discriminator}] Successfully Arrested!`);
               client.guilds.get('336336077755252738')
                 .channels.get('336877836680036352')
-                .send(`EVADING: [${member.user.username}] Successfully Arrested!`);
+                .send(`EVADING: [${member.user.username}#${member.user.discriminator}] Successfully Arrested!`);
             })
 
           // Hapus riwayatnya
@@ -63,10 +63,10 @@ module.exports = (client, member) => {
           })
             .then(res2 => {
               if (res2.data.deleted) {
-                log.info(`EVADING: [${member.user.username}] Record is deleted!`);
+                log.info(`EVADING: [${member.user.username}#${member.user.discriminator}] Record is deleted!`);
                 client.guilds.get('336336077755252738')
                   .channels.get('336877836680036352')
-                  .send(`EVADING: [${member.user.username}] Record is deleted!`);
+                  .send(`EVADING: [${member.user.username}#${member.user.discriminator}] Record is deleted!`);
               }
             })
         }
