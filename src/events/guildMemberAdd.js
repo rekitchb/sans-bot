@@ -45,9 +45,12 @@ module.exports = (client, member) => {
                 member.addRole(role);
               })
               log.info(`EVADING: [${member.user.username}#${member.user.discriminator}] Successfully Arrested!`);
+              // #staff-channel
               client.guilds.get('336336077755252738')
                 .channels.get('336877836680036352')
                 .send(`EVADING: [${member.user.username}#${member.user.discriminator}] Successfully Arrested!`);
+              // Messages
+              member.send('Anda melanggar peraturan yang sudah disepakati bersama, anda wajib mempertaruhkan kesalahan anda di <#505005439792971776> sekarang.');
             })
 
           // Hapus riwayatnya
