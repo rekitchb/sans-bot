@@ -4,7 +4,8 @@
   "description": "Discord template for you.",
   "main": "index.js",
   "scripts": {
-    "start": "forever index",
+    "start": "forever start index.js",
+    "stop": "forever stop index.js",
     "dev": "nodemon index",
     "lint": "eslint ./**/*.js"
   },
@@ -13,6 +14,7 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "discord.js": "^11.4.2",
+    "forever": "^1.0.0",
     "nodemon": "^1.18.11"
   },
   "devDependencies": {
