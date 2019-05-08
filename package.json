@@ -1,0 +1,26 @@
+{
+  "name": "tempeh-rework",
+  "version": "1.0.0",
+  "description": "Discord template for you.",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever index",
+    "dev": "nodemon index",
+    "lint": "eslint ./**/*.js"
+  },
+  "author": "skymunn",
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "discord.js": "^11.4.2",
+    "nodemon": "^1.18.11"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.2",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
+    "replify": "^1.2.0",
+    "string-template": "^1.0.0"
+  }
+}

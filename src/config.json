@@ -1,0 +1,11 @@
+{
+  "bot_name": "Sans-Bot",
+  "bot_prefix": "sn.",
+  "embed_color": "0xf48042",
+  "owners_id": [
+    "379616881272946688"
+  ],
+  "reply_timeout": 3,
+  "is_debug": true,
+  "server_private": true
+}
