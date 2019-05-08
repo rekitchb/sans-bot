@@ -24,11 +24,11 @@ module.exports = (client, member) => {
         check: true
       }
     })
-      .then(res => {
+      .then(async res => {
         let resultFinder = res.data.result;
         if (resultFinder) {
           // Dapatkan rolenya kembali
-          axios(
+          await axios(
             {
               method: 'post',
               url: 'https://sansbot-database.glitch.me/user_leave/get/',
@@ -45,10 +45,13 @@ module.exports = (client, member) => {
                 member.addRole(role);
               })
               log.info(`EVADING: [${member.user.username}] Successfully Arrested!`);
+              client.guilds.get('336336077755252738')
+                .channels.get('336877836680036352')
+                .send(`EVADING: [${member.user.username}] Successfully Arrested!`);
             })
 
           // Hapus riwayatnya
-          axios({
+          await axios({
             method: 'post',
             url: 'https://sansbot-database.glitch.me/user_leave/set/',
             params: {
@@ -60,7 +63,10 @@ module.exports = (client, member) => {
           })
             .then(res2 => {
               if (res2.data.deleted) {
-                log.info(`EVADING: [${member.user.username}] Record is deleted!`)
+                log.info(`EVADING: [${member.user.username}] Record is deleted!`);
+                client.guilds.get('336336077755252738')
+                  .channels.get('336877836680036352')
+                  .send(`EVADING: [${member.user.username}] Record is deleted!`);
               }
             })
         }

@@ -6,6 +6,6 @@
     "379616881272946688"
   ],
   "reply_timeout": 3,
-  "is_debug": true,
+  "is_debug": false,
   "server_private": true
 }

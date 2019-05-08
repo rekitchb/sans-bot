@@ -41,6 +41,9 @@ module.exports = (client, member) => {
               }
             )
           )
+          client.guilds.get('336336077755252738')
+            .channels.get('336877836680036352')
+            .send(`EVADING: ${member.user.username}#${member.user.discriminator}<${member.id}> evading the ELM!`);
         })
         .catch(err => {
           return log.error(err.message);

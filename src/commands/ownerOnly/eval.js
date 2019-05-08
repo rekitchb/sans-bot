@@ -25,16 +25,20 @@ exports.run = async (client, message, args) => {
       .split('\n')
       .splice(1)
       .join('');
-    let _eval_ = eval(newScript);
+    try {
+      let _eval_ = eval(newScript);
 
-    if (typeof _eval_ !== 'string')
-      _eval_ = require('util').inspect(_eval_, { depth: 0 });
+      if (typeof _eval_ !== 'string')
+        _eval_ = require('util').inspect(_eval_, { depth: 0 });
 
-    let embed = new RichEmbed()
-      .setColor(client.color)
-      .addField('Output', `\`\`\`js\n${_eval_}\`\`\``);
+      let embed = new RichEmbed()
+        .setColor(client.color)
+        .addField('Output', `\`\`\`js\n${_eval_}\`\`\``);
 
-    message.channel.send('Testing some code.', { embed });
+      message.channel.send('Testing some code.', { embed });
+    } catch (error) {
+      message.channel.send(`Error: **${error.message}**`);
+    }
   }
 };
 
