@@ -4,8 +4,7 @@
   "description": "Discord template for you.",
   "main": "index.js",
   "scripts": {
-    "start": "forever start index.js",
-    "stop": "forever stop index.js",
+    "start": "node index.js",
     "dev": "nodemon index",
     "lint": "eslint ./**/*.js"
   },
