@@ -26,7 +26,9 @@ module.exports = (client) => {
       statuses.push(stringTemplate(status.server, client.guilds.size));
     }
     // Push random status
-    statuses.push(status.addition);
+    status.addition.forEach(text => {
+      statuses.push(text);
+    })
     function randomGame() {
       let leng = statuses.length;
       let randNumber = Math.floor(Math.random() * leng);
