@@ -1,7 +1,7 @@
 const log = require('./console');
 const { ShardingManager } = require('discord.js');
 const Config = require('./config.json');
-require('dotenv').config();
+// require('dotenv').config();
 
 if (!Config.server_private) {
   const shards = new ShardingManager('./initial', {
