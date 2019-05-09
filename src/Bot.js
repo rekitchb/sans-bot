@@ -1,5 +1,4 @@
 const { Client, Collection, Message } = require('discord.js');
-const Timer = require('./plugin/timer');
 const { embed_color } = require('./config.json');
 const log = require('./console');
 
