@@ -2,7 +2,6 @@ const { GuildMember } = require('discord.js');
 const _axios = require('axios');
 const elm_settings = require('../plugin/json/elm_settings.json');
 const log = require('../console');
-const stringTemplate = require('string-template');
 
 const { Client } = require('../Bot');
 /**
@@ -12,7 +11,7 @@ const { Client } = require('../Bot');
 module.exports = (client, member) => {
   // When leave in POS
   if (member.guild.id === elm_settings['serverID']) {
-
+    if (process.env.DEV) return;
     let axios = _axios.default;
     axios({
       method: 'post',

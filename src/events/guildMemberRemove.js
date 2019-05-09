@@ -12,6 +12,7 @@ const { Client } = require('../Bot');
 module.exports = (client, member) => {
   // When leave in POS
   if (member.guild.id === elm_settings['serverID']) {
+    if (process.env.DEV) return;
     let dataMember = {
       memberID: member.id,
       serverID: member.guild.id,
