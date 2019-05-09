@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+const TimerMachine = require('timer-machine')
 
 const { Client } = require('../../Bot');
 /**
@@ -6,22 +7,17 @@ const { Client } = require('../../Bot');
  */
 module.exports = (client) => {
   setInterval(() => {
-    let interval = 0;
-    function timer() {
-      interval++;
-    }
-    setInterval(timer(), 1);
+    let timer = new TimerMachine();
+    timer.start()
     axios('https://sansbot-database.glitch.me/')
       .then(res => {
-        clearInterval(timer());
         // If got the hand shake to the server
         if (res.status === 200) {
-          client.log.info(`[HANDSHAKE] Handshake received! (${interval}ms)`);
+          client.log.info(`[HANDSHAKE] Handshake received! (${timer.time()} ms)`);
         }
       })
       .catch(err => {
-        clearInterval(timer());
-        client.log.error(`[HANDSHAKE] Handshake Error! (${interval}ms)\n\t${err.message}`);
+        client.log.error(`[HANDSHAKE] Handshake Error! (${timer.time()} ms)\n\t${err.message}`);
       })
   }, 30000);
 }
