@@ -19,5 +19,6 @@ module.exports = (client) => {
       .catch(err => {
         client.log.error(`[HANDSHAKE] Handshake Error! (${timer.time()} ms)\n\t${err.message}`);
       })
-  }, 30000);
+    timer.stop();
+  }, 60000);
 }

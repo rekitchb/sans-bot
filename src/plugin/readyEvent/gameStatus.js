@@ -11,7 +11,7 @@ module.exports = (client) => {
   // Game status
   let gameStatus = `${prefix}help | `;
   // If debug mode
-  if (config.is_debug) {
+  if (config.is_debug || process.env.DEV) {
     client.user.setPresence({
       game: {
         name: gameStatus + 'DEBUG MODE'
