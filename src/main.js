@@ -5,7 +5,7 @@ require('dotenv').config();
 
 if (!Config.server_private) {
   const shards = new ShardingManager('./initial', {
-    token: process.env.TOKEN,
+    token: process.env.DEV ? process.env.TOKEN_DEV : process.env.TOKEN,
     totalShards: 'auto'
   });
 

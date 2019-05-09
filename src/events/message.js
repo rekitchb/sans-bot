@@ -1,8 +1,8 @@
 const { Client, Message } = require('../Bot');
 const log = require('../console');
-const _prefix = require('../config.json').bot_prefix;
-const _debug = require('../config.json').is_debug;
-const _ownerID = require('../config.json').owners_id;
+const configs = require('../config.json');
+const _prefix = process.env.DEV ? configs.bot_dev_prefix : configs.bot_prefix;
+const _ownerID = configs.owners_id;
 const stringTemplate = require('string-template');
 
 /**
@@ -13,7 +13,7 @@ module.exports = (client, message) => {
   // Selain bot dan DM_Channel, bot akan mendengarkan commandnya
   if (message.author.bot || !message.guild) return;
   // Apabila debug dan yang mengeksekusi kodenya bukan owner, hiraukan
-  if (_debug && (message.content.startsWith(_prefix) && !_ownerID.includes(message.author.id))) {
+  if (process.env.DEV && (message.content.startsWith(_prefix) && !_ownerID.includes(message.author.id))) {
     return message.channel.send(
       stringTemplate(
         ':wave: | Hai <@{user}>, bot ini sedang mengalami perbaikan.',

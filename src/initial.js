@@ -7,4 +7,4 @@ const _Client = new Client({
 require('./handler/events')(_Client);
 require('./handler/module')(_Client);
 
-_Client.login(process.env.TOKEN);
+_Client.login(process.env.DEV ? process.env.TOKEN_DEV : process.env.TOKEN);

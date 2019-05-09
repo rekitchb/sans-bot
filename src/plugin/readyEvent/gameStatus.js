@@ -1,4 +1,5 @@
 const config = require('../../config.json');
+const prefix = process.env.DEV ? config.bot_dev_prefix : config.bot_prefix;
 const status = require('../json/status.json');
 const stringTemplate = require('string-template');
 
@@ -8,7 +9,7 @@ const { Client } = require('../../Bot')
  */
 module.exports = (client) => {
   // Game status
-  let gameStatus = `${config.bot_prefix}help | `;
+  let gameStatus = `${prefix}help | `;
   // If debug mode
   if (config.is_debug) {
     client.user.setPresence({

@@ -1,4 +1,5 @@
-const { bot_prefix } = require('../config.json');
+const configs = require('../config.json');
+const prefix = process.env.DEV ? configs.bot_dev_prefix : configs.bot_prefix;
 const { Collection } = require('discord.js');
 const cooldowns = new Collection();
 const stringTemplate = require('string-template');
@@ -10,7 +11,6 @@ const { Client, Message } = require('../Bot');
  * @param {Message} message - Ambil informasi dari dimensi message/pesan
  */
 module.exports = (client, message) => {
-  let prefix = bot_prefix;
   let args = message.content
     .slice(prefix.length)
     .trim()

@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
   const embed = new RichEmbed();
   const command = args[0];
   const date = new Date();
-  const prefix = config['bot_prefix'];
+  const prefix = process.env.DEV ? config.bot_dev_prefix : config.bot_prefix;
   let send = false;
 
   // Help without command
