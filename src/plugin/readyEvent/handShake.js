@@ -10,6 +10,7 @@ module.exports = (client) => {
     axios('https://sansbot-database.glitch.me/')
       .then(res => {
         client.timer.stop();
+        client.timer.reset();
         let interval = client.timer.count;
         // If got the hand shake to the server
         if (res.status === 200) {
@@ -18,9 +19,9 @@ module.exports = (client) => {
       })
       .catch(err => {
         client.timer.stop();
+        client.timer.reset();
         let interval = client.timer.count;
         client.log.error(`[HANDSHAKE] Handshake Error! (${interval}ms)\n\t${err.message}`);
       })
-    client.timer.reset();
   }, 10000);
 }

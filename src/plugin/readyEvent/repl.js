@@ -10,5 +10,5 @@ module.exports = (client) => {
   });
 
   myRepl.context.client = client;
-  myRepl.context.exit = process.exit(0);
+  myRepl.context.exitBot = process.exit(0);
 }
