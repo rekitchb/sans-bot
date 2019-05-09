@@ -16,7 +16,6 @@ class DiscordClient extends Client {
     this.aliases = new Collection();
     this.helps = new Collection();
 
-    this.timer = new Timer();
     this.color = embed_color;
     this.log = log;
   }

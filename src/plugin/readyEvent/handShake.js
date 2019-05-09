@@ -6,22 +6,22 @@ const { Client } = require('../../Bot');
  */
 module.exports = (client) => {
   setInterval(() => {
-    client.timer.start;
+    let interval = 0;
+    function timer() {
+      interval++;
+    }
+    setInterval(timer(), 1);
     axios('https://sansbot-database.glitch.me/')
       .then(res => {
-        client.timer.stop();
-        client.timer.reset();
-        let interval = client.timer.count;
+        clearInterval(timer());
         // If got the hand shake to the server
         if (res.status === 200) {
           client.log.info(`[HANDSHAKE] Handshake received! (${interval}ms)`);
         }
       })
       .catch(err => {
-        client.timer.stop();
-        client.timer.reset();
-        let interval = client.timer.count;
+        clearInterval(timer());
         client.log.error(`[HANDSHAKE] Handshake Error! (${interval}ms)\n\t${err.message}`);
       })
-  }, 10000);
+  }, 30000);
 }
