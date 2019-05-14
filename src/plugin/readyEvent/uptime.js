@@ -12,6 +12,9 @@ module.exports = (client) => {
 
   app.get('/', (request, response) => {
     response.sendStatus(200);
+    response.json({
+      message: 'OK'
+    })
   });
   app.listen(process.env.PORT);
 }
