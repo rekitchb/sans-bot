@@ -1,7 +1,6 @@
 const express = require('express');
-const axios = require('axios').default;
 const app = express();
-const TimerMachine = require('timer-machine');
+const log = require('../../console');
 
 const { Client } = require('../../Bot');
 /**
@@ -11,10 +10,10 @@ module.exports = (client) => {
   if (process.env.DEV) return;
 
   app.get('/', (request, response) => {
+    let IP = request.ip;
+    log.info(`[PINGED] Got ping from ${IP}!`);
+
     response.sendStatus(200);
-    response.json({
-      message: 'OK'
-    })
   });
   app.listen(process.env.PORT);
 }
