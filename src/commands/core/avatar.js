@@ -9,8 +9,19 @@ const { Client, Message } = require('../../Bot');
 exports.run = async (client, message, args) => {
   let guild = message.guild;
   let author = message.author;
-  let user = message.mentions.users.first() || guild.member(args[0]).user;
   let embed = new RichEmbed();
+  let user;
+
+  // Random string avoider
+  try {
+    user = message.mentions.users.first() || guild.member(args[0]).user;
+  }
+  catch (ex) {
+    return message.reply(client.constant.usage(
+      client.prefix,
+      client.commands.get(this.help.name).help.usage
+    ));
+  }
 
   // Divider avatar
   if (!user) {
