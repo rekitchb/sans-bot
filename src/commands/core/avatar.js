@@ -10,29 +10,34 @@ exports.run = async (client, message, args) => {
   let guild = message.guild;
   let author = message.author;
   let embed = new RichEmbed();
-  let user;
+  let user = message.mentions.members.first();
 
-  // Random string avoider
-  try {
-    user = message.mentions.users.first() || guild.member(args[0]).user;
-  }
-  catch (ex) {
-    return message.reply(client.constant.usage(
-      client.prefix,
-      client.commands.get(this.help.name).help.usage
-    ));
-  }
-
-  // Divider avatar
   if (!user) {
-    embed
-      .setDescription('Your avatar here.')
-      .setImage(author.avatarURL);
+    if (!args[0]) {
+      embed
+        .setDescription('Your avatar here.')
+        .setImage(author.avatarURL);
+    }
+    else {
+      let member = guild.members.get(args[0]);
+      if (!member) {
+        return message.reply(
+          client.constant.usage(
+            client.prefix, client.commands.get(this.help.name).help.usage
+          )
+        )
+      }
+      else {
+        embed
+          .setDescription(`${member.user.username}#${member.user.discriminator} avatar.`)
+          .setImage(member.user.avatarURL);
+      }
+    }
   }
   else {
     embed
-      .setDescription(`${user.username}#${user.discriminator} avatar here.`)
-      .setImage(user.avatarURL);
+      .setDescription(`${user.user.username}#${user.user.discriminator} avatar here.`)
+      .setImage(user.user.avatarURL);
   }
 
   embed
