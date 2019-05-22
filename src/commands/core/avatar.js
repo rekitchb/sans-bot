@@ -9,7 +9,7 @@ const { Client, Message } = require('../../Bot');
 exports.run = async (client, message, args) => {
   let guild = message.guild;
   let author = message.author;
-  let user = message.mentions.users.first() || guild.member(args[0]);
+  let user = message.mentions.users.first() || guild.member(args[0]).user;
   let embed = new RichEmbed();
 
   // Divider avatar
