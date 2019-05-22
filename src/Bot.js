@@ -1,6 +1,7 @@
 const { Client, Collection, Message } = require('discord.js');
-const { embed_color } = require('./config.json');
+const { embed_color, bot_prefix } = require('./config.json');
 const log = require('./console');
+// const Constant = require('./handler/constant');
 
 /**
  * Extender Client for Tempeh.
@@ -17,6 +18,7 @@ class DiscordClient extends Client {
 
     this.color = embed_color;
     this.log = log;
+    this.prefix = bot_prefix;
   }
 }
 

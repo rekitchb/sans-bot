@@ -27,7 +27,7 @@ module.exports = (client, member) => {
         let resultFinder = res.data.result;
         if (resultFinder) {
           // Dapatkan rolenya kembali
-          await axios(
+          let takeBackRole = await axios(
             {
               method: 'post',
               url: 'https://sansbot-database.glitch.me/user_leave/get/',
@@ -49,11 +49,13 @@ module.exports = (client, member) => {
                 .channels.get('336877836680036352')
                 .send(`EVADING: [${member.user.username}#${member.user.discriminator}] Successfully Arrested!`);
               // Messages
-              member.send('Anda melanggar peraturan yang sudah disepakati bersama, anda wajib mempertaruhkan kesalahan anda di <#505005439792971776> sekarang.');
+              member.send(
+                'Njir pengen hindarin ELM. Ke <#505005439792971776> dulu ya kampang, jangan lari dulu\nhttps://gph.is/g/aejYJ9l',
+              )
             })
 
           // Hapus riwayatnya
-          await axios({
+          let removeHistory = await axios({
             method: 'post',
             url: 'https://sansbot-database.glitch.me/user_leave/set/',
             params: {

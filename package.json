@@ -13,11 +13,9 @@
   "author": "skymunn",
   "license": "MIT",
   "dependencies": {
-    "bunyan": "^1.8.12",
     "discord.js": "^11.4.2",
     "forever": "^1.0.0",
-    "nodemon": "^1.18.11",
-    "rollup": "^1.11.3"
+    "nodemon": "^1.18.11"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -26,9 +24,7 @@
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "express": "^4.16.4",
-    "replify": "^1.2.0",
     "string-template": "^1.0.0",
-    "timer-machine": "^1.1.0",
-    "webpack-cli": "^3.3.2"
+    "timer-machine": "^1.1.0"
   }
 }
