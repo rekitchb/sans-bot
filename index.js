@@ -4,6 +4,7 @@
  * Ikramullah Latif / github/skymunn
  */
 
+require('babel-core/register');
 const log = require('./src/console');
 
 if (process.argv[2] === 'dev') {

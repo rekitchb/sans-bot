@@ -1,7 +1,7 @@
-const { Client, Collection, Message } = require('discord.js');
-const { embed_color, bot_prefix } = require('./config.json');
-const log = require('./console');
-const Constant = require('./handler/constant');
+import { Client, Collection, Message } from 'discord.js';
+import { embed_color, bot_prefix } from './config.json';
+import log from './console';
+import Constant from './handler/constant';
 
 /**
  * Extender Client for Tempeh.

@@ -6,10 +6,12 @@ const { Client } = require('../../Bot');
  * @param {Client} client
  */
 module.exports = (client) => {
+  if (process.env.DEV) return;
+
   setInterval(() => {
     let timer = new TimerMachine();
     timer.start()
-    axios('https://sansbot-database.glitch.me/')
+    axios(process.env.DATABASE_URI)
       .then(res => {
         // If got the hand shake to the server
         if (res.status === 200) {

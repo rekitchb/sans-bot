@@ -15,7 +15,7 @@ module.exports = (client, member) => {
     let axios = _axios.default;
     axios({
       method: 'post',
-      url: 'https://sansbot-database.glitch.me/user_leave/get/',
+      url: process.env.DATABASE_URI + 'user_leave/get/',
       params: {
         password: process.env.SUPERADMIN,
         serverID: member.guild.id,
@@ -30,7 +30,7 @@ module.exports = (client, member) => {
           let takeBackRole = await axios(
             {
               method: 'post',
-              url: 'https://sansbot-database.glitch.me/user_leave/get/',
+              url: process.env.DATABASE_URI + 'user_leave/get/',
               params: {
                 password: process.env.SUPERADMIN,
                 serverID: member.guild.id,
@@ -57,7 +57,7 @@ module.exports = (client, member) => {
           // Hapus riwayatnya
           let removeHistory = await axios({
             method: 'post',
-            url: 'https://sansbot-database.glitch.me/user_leave/set/',
+            url: process.env.DATABASE_URI + 'user_leave/set/',
             params: {
               password: process.env.SUPERADMIN,
               serverID: member.guild.id,
